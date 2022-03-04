@@ -14,6 +14,9 @@ public class CyclopsMiniController : MonoBehaviour
     [SerializeField] GameObject endScreen;
     [SerializeField] Text endText;
 
+    [SerializeField] Sprite grabSprite;
+    [SerializeField] Sprite handSprite;
+
     [SerializeField] List<GameObject> locations;
     private int currLocation;
 
@@ -66,7 +69,7 @@ public class CyclopsMiniController : MonoBehaviour
                 //Debug.Log(temp);
                 //cyclops.transform.localPosition += cyclopsVector;
                 //Debug.Log(cyclops.transform.localPosition);
-                step = 300 * Time.deltaTime;
+                step = 350 * Time.deltaTime;
                 cyclops.transform.localPosition = Vector3.MoveTowards(cyclops.transform.localPosition, locations[currLocation].transform.localPosition, step);
                 break;
             case Phases.CyclopsGrab:
@@ -100,7 +103,7 @@ public class CyclopsMiniController : MonoBehaviour
         //float moveY = 7f;
         //float moveX = 7f;
         //cyclopsVector = new Vector3(0, -moveY, 0);
-        yield return new WaitForSeconds(1.3f);
+        yield return new WaitForSeconds(1.5f);
         //cyclopsVector = new Vector3(0, 0, 0);
         yield return new WaitForSeconds(.3f);
         currLocation++;
@@ -136,11 +139,13 @@ public class CyclopsMiniController : MonoBehaviour
     }
     public IEnumerator EndCyclopsTurn()
     {
-        yield return new WaitForSeconds(1f);
-        //do grab animation
-        target = new Vector3(-250, 230, 0);
-        yield return new WaitForSeconds(2f);
-        if(currSheep == targetSheep)
+        yield return new WaitForSeconds(.5f);
+        cyclops.GetComponent<Image>().sprite = grabSprite;
+        yield return new WaitForSeconds(.3f);
+        target = new Vector3(-250, 389, 0);
+        yield return new WaitForSeconds(2.3f);
+        cyclops.GetComponent<Image>().sprite = handSprite;
+        if (currSheep == targetSheep)
         {
             phase = Phases.Loss;
             endText.text = "You Lose";
@@ -152,13 +157,14 @@ public class CyclopsMiniController : MonoBehaviour
             int rand = Random.Range(0, sheepList.Count);
             targetSheep = sheepList[rand];
             target = targetSheep.transform.localPosition;
-            yield return new WaitForSeconds(2f);
-            //grab animation
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1.5f);
+            cyclops.GetComponent<Image>().sprite = grabSprite;
+            yield return new WaitForSeconds(1f);
             sheepList.Remove(targetSheep);
             targetSheep.SetActive(false);
-            target = new Vector3(-250, 230, 0);
+            target = new Vector3(-250, 389, 0);
             yield return new WaitForSeconds(2f);
+            cyclops.GetComponent<Image>().sprite = handSprite;
             if (currSheep == targetSheep)
             {
                 phase = Phases.Loss;
@@ -197,7 +203,8 @@ public class CyclopsMiniController : MonoBehaviour
             currSheep.GetComponent<Button>().colors = newColorBlock;
         Debug.Log("Test2");
         currSheep = sheep;
-        newColorBlock.disabledColor = Color.black;
+        Color c = new Color(178/255f, 178/255f, 178/255f);
+        newColorBlock.disabledColor = c;
         currSheep.GetComponent<Button>().colors = newColorBlock;
         Debug.Log("disabled");
         //need to add changing the disabled sprite of the selected sheep
