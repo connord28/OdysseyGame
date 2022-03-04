@@ -513,7 +513,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c8c80f450c69e0b4ca069aca055f75ae, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 44947f6803f55d7499f7631d5db1ac99, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1295,8 +1295,8 @@ MonoBehaviour:
   cyclops: {fileID: 387344141}
   endScreen: {fileID: 1245216359}
   endText: {fileID: 749209765}
-  grabSprite: {fileID: 21300000, guid: 7647529425607814a9a82c3f716b6a8a, type: 3}
-  handSprite: {fileID: 21300000, guid: c8c80f450c69e0b4ca069aca055f75ae, type: 3}
+  grabSprite: {fileID: 21300000, guid: 0077e02fd0b03ad42a6d46d8814ef70f, type: 3}
+  handSprite: {fileID: 21300000, guid: 44947f6803f55d7499f7631d5db1ac99, type: 3}
   locations:
   - {fileID: 1842243920}
   - {fileID: 238762701}
