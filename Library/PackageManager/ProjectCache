@@ -5,7 +5,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637819682411670902
+      ticks: 637820246679408530
     m_Hash: 2223692279
   m_LockFileStatus:
     m_FilePath: C:/Users/Connor/Documents/GitHub/OdysseyGame/Packages/packages-lock.json
@@ -13,7 +13,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637819682411737750
+      ticks: 637820246679435364
     m_Hash: 94031379
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
@@ -1536,6 +1536,7 @@ m_PackageAssets:
         - 1.6.4
         - 1.7.0-pre.1
         - 1.7.0-pre.2
+        - 1.7.0
         compatible:
         - 1.4.8
         - 1.5.0-pre.2
@@ -1562,6 +1563,7 @@ m_PackageAssets:
         - 1.6.4
         - 1.7.0-pre.1
         - 1.7.0-pre.2
+        - 1.7.0
         verified: 1.4.8
       dependencies:
       - name: com.unity.modules.director
