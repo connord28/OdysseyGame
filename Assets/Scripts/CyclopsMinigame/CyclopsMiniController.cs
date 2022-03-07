@@ -157,7 +157,7 @@ public class CyclopsMiniController : MonoBehaviour
             int rand = Random.Range(0, sheepList.Count);
             targetSheep = sheepList[rand];
             target = targetSheep.transform.localPosition;
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(1.5f); //for the longest movement this is too slow
             cyclops.GetComponent<Image>().sprite = grabSprite;
             yield return new WaitForSeconds(1f);
             sheepList.Remove(targetSheep);

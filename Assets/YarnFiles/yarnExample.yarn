@@ -1,11 +1,20 @@
 title: Start
 ---
-Telemachus: Father, you're alive!
-Telemachus: It's so nice to see you!
+<<highlight Penelope Odysseus>>
+Penelope: You're alive!
+Penelope: It's so nice to see you!
+<<highlight Odysseus Penelope>>
 
--> It's great to see you too, my son.
+-> It's great to see you too.
 -> I've finally returned.
-
-Telemachus: You've got to help Mom. Suitors have been after her as soon as it looked like you weren't coming back.
+      
+<<highlight Penelope Odysseus>>
+Penelope: It was so awful without you here.
+<<jump Next>>
 ===
 
+
+title: Next
+---
+Penelope: Kill the suitors
+===
