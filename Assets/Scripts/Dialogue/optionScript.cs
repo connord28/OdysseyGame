@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 namespace Yarn.Unity
 {
-    public class OptionView : UnityEngine.UI.Selectable, ISubmitHandler, IPointerClickHandler, IPointerEnterHandler
+    public class OptionView2 : UnityEngine.UI.Selectable, ISubmitHandler, IPointerClickHandler, IPointerEnterHandler
     {
         [SerializeField] TextMeshProUGUI text;
         [SerializeField] bool showCharacterName = false;
