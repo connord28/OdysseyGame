@@ -2,6 +2,8 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
+/OdysseyGame/[Ll]ibrary
+/OdysseyGame/[Ll]ogs
 [Ll]ibrary/
 [Tt]emp/
 /[Oo]bj/
