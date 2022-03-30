@@ -11,12 +11,12 @@ public class VNSprites : MonoBehaviour
     //[SerializeField] GameObject Penelope;
     //private int turn = 0;
 
-    [YarnCommand("highlight")]
+    /*[YarnCommand("highlight")]
     public void highlight(string other) //find string
     {
         this.GetComponent<Image>().color = Color.white;
         GameObject.Find(other).GetComponent<Image>().color = shadeColor;
-        /*if (turn == 2)
+        *//*if (turn == 2)
         {
             odysseus.GetComponent<Image>().color = Color.white;
             Penelope.GetComponent<Image>().color = highlightColor;
@@ -27,6 +27,6 @@ public class VNSprites : MonoBehaviour
             Penelope.GetComponent<Image>().color = Color.white;
         }
         turn++;
-        Debug.Log("Worked");*/
-    }
+        Debug.Log("Worked");*//*
+    }*/
 }
