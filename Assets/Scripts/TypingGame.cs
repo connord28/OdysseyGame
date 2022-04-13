@@ -21,7 +21,7 @@ public class TypingGame : MonoBehaviour
     private int currCorrect = 0;
     private bool[] inUse;
     private int health = 3;
-    private string[] names = {"Zeus", "Hades", "Ares", "Hermes", "Hera", "Poisidon", "Apollo", "Demeter" }; //change these to be names of suitors
+    private string[] names = {"Zeus", "Hades", "Ares", "Hermes", "Hera", "Poseidon", "Apollo", "Demeter" }; //change these to be names of suitors
 
     private void shuffle(string[] arr)
     {
