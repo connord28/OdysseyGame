@@ -15,6 +15,9 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 moveDirection = Vector2.zero;
 
+    private bool isXMoving = false;
+    private bool isYMoving = false;
+
     private void Awake()
     {
         playerControls = new PlayerControls();
@@ -67,7 +70,22 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        rigidbody2D.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
+        if(moveDirection.x != 0 && !isYMoving)
+        {
+            rigidbody2D.velocity = new Vector2(moveDirection.x * moveSpeed, 0);
+            isXMoving = true;
+            isYMoving = false;
+        } else if(moveDirection.y != 0 && !isXMoving)
+        {
+            rigidbody2D.velocity = new Vector2(0, moveDirection.y * moveSpeed);
+            isXMoving = false;
+            isYMoving = true;
+        } else
+        {
+            rigidbody2D.velocity = Vector2.zero;
+            isXMoving = false;
+            isYMoving = false;
+        }
     }
 
     private void Interact(InputAction.CallbackContext context)
