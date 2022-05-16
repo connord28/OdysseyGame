@@ -222,8 +222,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   regOrthoSize: 4.5
-  regXDamping: 3
-  regYDamping: 3
+  regXDamping: 2.5
+  regYDamping: 2.5
   mazeOrthoSize: 2
   mazeXDamping: 1
   mazeYDamping: 1
@@ -10252,7 +10252,7 @@ Transform:
   m_GameObject: {fileID: 2093326813}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 21.71, y: -0.44963, z: -2.0454264}
-  m_LocalScale: {x: 23.3948, y: 1.2375, z: 1}
+  m_LocalScale: {x: 22.22506, y: 1.2375, z: 1}
   m_Children: []
   m_Father: {fileID: 1240134216}
   m_RootOrder: 2
