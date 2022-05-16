@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CyclopsMiniController : MonoBehaviour
 {
@@ -31,6 +32,7 @@ public class CyclopsMiniController : MonoBehaviour
 
     //get rid of this later 
     private Color sheepColor;
+    private bool win = false;
 
     // Start is called before the first frame update
     void Start()
@@ -176,6 +178,7 @@ public class CyclopsMiniController : MonoBehaviour
             {
                 phase = Phases.Win;
                 endText.text = "You Win";
+                win = false;
                 endScreen.SetActive(true);
                 yield break;
             }
@@ -213,5 +216,19 @@ public class CyclopsMiniController : MonoBehaviour
             s.GetComponent<Button>().interactable = false;
         }
         StartCoroutine(PlayerTurnEnd());
+    }
+
+    public void returnToGame()
+    {
+        if(win)
+        {
+            GameController.BeatCyclopsGame = true;
+            SceneManager.LoadScene("Ithaka");
+        }
+        else
+        {
+            SceneManager.LoadScene("Ithaka");
+            //need to change things in game controller
+        }
     }
 }

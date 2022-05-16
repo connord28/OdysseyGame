@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class TypingGame : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class TypingGame : MonoBehaviour
     private bool[] inUse;
     private int health = 3;
     private string[] names = {"Zeus", "Hades", "Ares", "Hermes", "Hera", "Poseidon", "Apollo", "Demeter" }; //change these to be names of suitors
+    private bool win = false;
 
     private void shuffle(string[] arr)
     {
@@ -70,6 +72,7 @@ public class TypingGame : MonoBehaviour
         target = null;
         targetName = "";
         endscreen.GetComponentInChildren<Text>().text = "You Win";
+        win = true;
         endscreen.SetActive(true);
         yield break;
     }
@@ -193,6 +196,20 @@ public class TypingGame : MonoBehaviour
                 Debug.Log("FAIL   " + targetName);
                 currCorrect = 0;
             }
+        }
+    }
+
+    public void returnToGame()
+    {
+        if (win)
+        {
+            GameController.BeatIthakaGame= true;
+            SceneManager.LoadScene("Cyclops");
+        }
+        else
+        {
+            SceneManager.LoadScene("Cyclops");
+            //need to change things in game controller
         }
     }
 }
