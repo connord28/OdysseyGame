@@ -7,9 +7,10 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 3.0f;
     [SerializeField] private PlayerControls playerControls;
-    
+    [SerializeField] Animator animator;
+
     // Camera settings
-    
+
 
 
     private InputAction move;
@@ -78,20 +79,26 @@ public class PlayerController : MonoBehaviour
     {
         if(moveDirection.x != 0 && !isYMoving)
         {
+            animator.SetBool("walking", true);
             rigidbody2D.velocity = new Vector2(moveDirection.x * moveSpeed, 0);
+            animator.SetInteger("Direction", moveDirection.x > 0 ? 1 : 0);
             isXMoving = true;
             isYMoving = false;
         } else if(moveDirection.y != 0 && !isXMoving)
         {
+            animator.SetBool("walking", true);
             rigidbody2D.velocity = new Vector2(0, moveDirection.y * moveSpeed);
+            animator.SetInteger("Direction", moveDirection.y > 0 ? 2 : 3);
             isXMoving = false;
             isYMoving = true;
         } else
         {
+            animator.SetBool("walking", false);
             rigidbody2D.velocity = Vector2.zero;
             isXMoving = false;
             isYMoving = false;
         }
+        
     }
 
     private void Interact(InputAction.CallbackContext context)
