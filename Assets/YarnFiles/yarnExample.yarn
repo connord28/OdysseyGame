@@ -3,15 +3,6 @@ title: Start
 <<highlight Penelope Odysseus>>
 Penelope: You're alive!
 Penelope: It's so nice to see you!
-Penelope: It was so awful without you here.
-<<jump Next>>
-===
-
-title: node2
----
-<<highlight Penelope Odysseus>>
-Penelope: You're alive!
-Penelope: It's so nice to see you!
 <<highlight Odysseus Penelope>>
 
 -> It's great to see you too.
