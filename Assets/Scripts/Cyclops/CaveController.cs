@@ -4,19 +4,35 @@ using UnityEngine;
 using Yarn.Unity;
 using UnityEngine.SceneManagement;
 
+
 public class CaveController : MonoBehaviour
 {
-    [YarnCommand("nextScene")]
-    public void nextScene(string scene)
+    [SerializeField] GameObject player;
+    [SerializeField] GameObject dialogueRunner;
+    [SerializeField] GameObject currentScene;
+
+
+    [YarnCommand("CyclopsNext")]
+    public void CyclopsNext(string scene)
     {
         int current = SceneManager.GetActiveScene().buildIndex;
         if (scene == "game")
         {
-            SceneManager.LoadScene(current + 1);
+            dialogueRunner.SetActive(false);
+            currentScene.SetActive(false);
+            SceneManager.LoadScene(current + 1, LoadSceneMode.Additive);
         }
         else
         {
             SceneManager.LoadScene(current + 2);
         }
+    }
+
+    public void restart()
+    {
+        currentScene.SetActive(true);
+        player.SetActive(true);
+        dialogueRunner.SetActive(false);
+        dialogueRunner.GetComponent<DialogueRunner>().startNode = "Next";
     }
 }

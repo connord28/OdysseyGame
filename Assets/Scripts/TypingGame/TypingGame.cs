@@ -25,6 +25,9 @@ public class TypingGame : MonoBehaviour
     private string[] names = {"Zeus", "Hades", "Ares", "Hermes", "Hera", "Poseidon", "Apollo", "Demeter" }; //change these to be names of suitors
     private bool win = false;
 
+    private GameObject previousScene;
+
+
     private void shuffle(string[] arr)
     {
         int n = arr.Length;
@@ -40,6 +43,7 @@ public class TypingGame : MonoBehaviour
 
     void Start()
     {
+        previousScene = GameObject.Find("PenelopeController");
         suitors = new Queue<GameObject>();
         shuffle(names);
         nameStack = new Stack<string>();
@@ -201,14 +205,19 @@ public class TypingGame : MonoBehaviour
 
     public void returnToGame()
     {
+        int current = SceneManager.GetActiveScene().buildIndex + 1;
         if (win)
         {
-            GameController.BeatIthakaGame= true;
-            SceneManager.LoadScene("Cyclops");
+            GameController.BeatIthakaGame = true;
+            SceneManager.UnloadSceneAsync(current - 1);
+            SceneManager.LoadScene(current + 1, LoadSceneMode.Single);
         }
         else
         {
-            SceneManager.LoadScene("Cyclops");
+            //previousScene.SetActive(true);
+            previousScene.GetComponent<CaveController>().restart();
+            SceneManager.UnloadSceneAsync(current);
+            //SceneManager.LoadScene(current-1, );
             //need to change things in game controller
         }
     }

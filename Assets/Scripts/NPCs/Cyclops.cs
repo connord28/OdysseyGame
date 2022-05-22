@@ -9,9 +9,7 @@ public class Cyclops : InteractableObject
 {
     [SerializeField] GameObject dialogueController;
     [SerializeField] GameObject player;
-    [SerializeField] GameObject Eventsystem;
-    public EventSystem eventSystem;
-    public Canvas canvas;
+    [SerializeField] YarnProject project;
 
     // Start is called before the first frame update
     void Start()
@@ -30,8 +28,11 @@ public class Cyclops : InteractableObject
         //canvas.enabled = true;
         //eventSystem.enabled = true;
         player.SetActive(false);
-        Eventsystem.SetActive(true);
         dialogueController.SetActive(true);
+        dialogueController.GetComponent<DialogueRunner>().startAutomatically = false;
+        dialogueController.GetComponent<DialogueRunner>().SetProject(project);
+        dialogueController.GetComponent<DialogueRunner>().StartDialogue("Next");
+
         /*DialogueRunner runner = dialogueController.GetComponent<DialogueRunner>();
         Debug.Log(runner.yarnProject);
         Debug.Log(runner.startNode);*/

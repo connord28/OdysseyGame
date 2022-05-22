@@ -1360,7 +1360,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1245216361}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1287537035}
+        m_TargetAssemblyTypeName: CyclopsMiniController, Assembly-CSharp
+        m_MethodName: returnToGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1287537033
 GameObject:
   m_ObjectHideFlags: 0
@@ -1429,6 +1441,7 @@ MonoBehaviour:
   - {fileID: 1450278990}
   - {fileID: 1900849626}
   - {fileID: 522652656}
+  previousScene: {fileID: 0}
 --- !u!1001 &1338187956
 PrefabInstance:
   m_ObjectHideFlags: 0
