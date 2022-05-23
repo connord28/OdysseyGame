@@ -23,7 +23,7 @@ public class TypingGame : MonoBehaviour
     private bool[] inUse;
     private int health = 3;
     private string[] names = {"Zeus", "Hades", "Ares", "Hermes", "Hera", "Poseidon", "Apollo", "Demeter" }; //change these to be names of suitors
-    private bool win = false;
+    public bool win = false;
 
     private GameObject previousScene;
 
@@ -145,6 +145,7 @@ public class TypingGame : MonoBehaviour
             }
             target = null;
             targetName = "";
+            endscreen.GetComponentInChildren<Text>().text = "You Lose";
             endscreen.SetActive(true);
         }
     }
@@ -215,7 +216,7 @@ public class TypingGame : MonoBehaviour
         else
         {
             //previousScene.SetActive(true);
-            previousScene.GetComponent<CaveController>().restart();
+            previousScene.GetComponent<PenelopeController>().restart();
             SceneManager.UnloadSceneAsync(current);
             //SceneManager.LoadScene(current-1, );
             //need to change things in game controller

@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Final Scenes/TitleScene.unity
+    guid: 210315a0e615d6a488bce366d2051a19
+  - enabled: 1
     path: Assets/Scenes/Final Scenes/CyclopsCave.unity
     guid: 6286d79d927f30d46b2707e6a707909d
   - enabled: 1
@@ -20,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Final Scenes/TypingGame.unity
     guid: 13b1d75835e647e4591480a9bb1486ea
+  - enabled: 1
+    path: Assets/Scenes/Final Scenes/End.unity
+    guid: e4c4709e9b1cbab40852b3451148f066
   m_configObjects: {}
