@@ -16,5 +16,18 @@ Penelope: It was so awful without you here.
 
 title: Next
 ---
+Penelope: Kill the Cyclops
+<<CyclopsNext CaveController game>>
+===
+
+title: CalypsoNext
+---
+Penelope: Kill the island
+<<CalypsoNext Calypso game>>
+===
+
+title: Penelope
+---
 Penelope: Kill the suitors
+<<PenelopeNext PenelopeController game>>
 ===

@@ -6,6 +6,24 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Final Scenes/TitleScene.unity
+    guid: 210315a0e615d6a488bce366d2051a19
+  - enabled: 1
+    path: Assets/Scenes/Final Scenes/CyclopsCave.unity
+    guid: 6286d79d927f30d46b2707e6a707909d
+  - enabled: 1
+    path: Assets/Scenes/Final Scenes/CyclopsGame.unity
+    guid: c87e3bea66b5f6d4e886eb1d3fa78376
+  - enabled: 1
+    path: Assets/Scenes/Final Scenes/CalypsoIsland.unity
+    guid: 3a3629b41eba76d4593ab9b772af9c7b
+  - enabled: 1
+    path: Assets/Scenes/Final Scenes/Ithaka.unity
+    guid: af16316bd498dd243a62198c9ccf6b75
+  - enabled: 1
+    path: Assets/Scenes/Final Scenes/TypingGame.unity
+    guid: 13b1d75835e647e4591480a9bb1486ea
+  - enabled: 1
+    path: Assets/Scenes/Final Scenes/End.unity
+    guid: e4c4709e9b1cbab40852b3451148f066
   m_configObjects: {}
