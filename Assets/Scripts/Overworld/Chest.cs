@@ -9,6 +9,9 @@ public class Chest : InteractableObject
     public InventoryItemData m_item;
     private InventorySystem currInventory;
 
+    [SerializeField] private Sprite open;
+    [SerializeField] private Sprite closed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,14 +40,13 @@ public class Chest : InteractableObject
         {
             opened = true;
             currInventory.Add(m_item);
-            //Open chest
+            gameObject.GetComponent<SpriteRenderer>().sprite = open;
             Debug.Log("Opened chest. The key has 3 numbers enscribed into it: 1 0 2");
         }
     }
 
     public void closeChest()
     {
-        Debug.Log("Closing chest because player has left.");
-        Destroy(gameObject);
+        gameObject.GetComponent<SpriteRenderer>().sprite = closed;
     }
 }

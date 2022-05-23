@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Lever : InteractableObject
 {
+    [SerializeField] private Sprite[] leverSprites;
+
     [SerializeField] private int maxState;
     [SerializeField] private int minState;
 
@@ -13,6 +15,13 @@ public class Lever : InteractableObject
     void Start()
     {
         
+    }
+
+    void Awake()
+    {
+        int state = Random.Range(minState, maxState);
+        leverState = state;
+        GetComponent<SpriteRenderer>().sprite = leverSprites[state];
     }
 
     // Update is called once per frame
@@ -39,11 +48,12 @@ public class Lever : InteractableObject
         {
             leverState = minState;
         }
+
+        GetComponent<SpriteRenderer>().sprite = leverSprites[leverState];
     }
 
     private void updateLever()
     {
-        //change state of lever (visually)
         incState();
         GetComponentInParent<LeverPuzzle>().puzzleStatus();
     }

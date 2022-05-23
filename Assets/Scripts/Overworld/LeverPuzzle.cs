@@ -47,7 +47,6 @@ public class LeverPuzzle : MonoBehaviour
             }
             i--;
         }
-        Debug.Log("==========");
 
         if (numTrue == m_levers.Count && currInventory.Get(keyNeeded) != null)
         {
@@ -62,11 +61,7 @@ public class LeverPuzzle : MonoBehaviour
 
     private void endPuzzle()
     {
-        foreach (Lever x in m_levers)
-        {
-            Destroy(x);
-        }
-        Debug.Log("Puzzle solved!");
+        Debug.Log("Puzzle solved! Opening exit!");
         Destroy(gameObject);
     }
 }
