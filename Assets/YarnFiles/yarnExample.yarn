@@ -1,14 +1,14 @@
 title: Start
 ---
-<<highlight Penelope Odysseus>>
+<<highlight NPC Odysseus>>
 Penelope: You're alive!
 Penelope: It's so nice to see you!
-<<highlight Odysseus Penelope>>
+<<highlight Odysseus NPC>>
 
 -> It's great to see you too.
 -> I've finally returned.
       
-<<highlight Penelope Odysseus>>
+<<highlight NPC Odysseus>>
 Penelope: It was so awful without you here.
 <<jump Next>>
 ===
@@ -30,4 +30,10 @@ title: Penelope
 ---
 Penelope: Kill the suitors
 <<PenelopeNext PenelopeController game>>
+===
+
+title: Telemachus
+---
+Penelope: Hello Dad
+<<TelemachusEnd PenelopeController>>
 ===

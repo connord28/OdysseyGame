@@ -11,18 +11,6 @@ public class Cyclops : InteractableObject
     [SerializeField] GameObject player;
     [SerializeField] YarnProject project;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void runDialogue()
     {
         //canvas.enabled = true;
@@ -31,7 +19,7 @@ public class Cyclops : InteractableObject
         dialogueController.SetActive(true);
         dialogueController.GetComponent<DialogueRunner>().startAutomatically = false;
         dialogueController.GetComponent<DialogueRunner>().SetProject(project);
-        dialogueController.GetComponent<DialogueRunner>().StartDialogue("Next");
+        dialogueController.GetComponent<DialogueRunner>().StartDialogue("Start");
 
         /*DialogueRunner runner = dialogueController.GetComponent<DialogueRunner>();
         Debug.Log(runner.yarnProject);
