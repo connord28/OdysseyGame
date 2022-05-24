@@ -23,16 +23,16 @@ public class PlayerController : MonoBehaviour
     private bool isXMoving = false;
     private bool isYMoving = false;
 
-    private InventorySystem currInventory;
+    [SerializeField] private InventorySystem currInventory;
 
-    private CinemachineVirtualCamera vCam;
+    [SerializeField] private CinemachineVirtualCamera vCam;
     private CameraAdjust vCamSettings;
 
     private void Awake()
     {
         playerControls = new PlayerControls();
-        currInventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<InventorySystem>();
-        vCam = GameObject.FindGameObjectWithTag("CM vCam").GetComponent<CinemachineVirtualCamera>();
+        //currInventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<InventorySystem>();
+        //vCam = GameObject.FindGameObjectWithTag("CM vCam").GetComponent<CinemachineVirtualCamera>();
         vCamSettings = vCam.GetComponent<CameraAdjust>();
     }
 
@@ -123,6 +123,17 @@ public class PlayerController : MonoBehaviour
             vCam.m_Lens.OrthographicSize = vCamSettings.getRegOrthoSize();
             vCam.GetCinemachineComponent<CinemachineTransposer>().m_XDamping = vCamSettings.getRegXDamping(); ;
             vCam.GetCinemachineComponent<CinemachineTransposer>().m_YDamping = vCamSettings.getRegYDamping(); ;
+        }
+    }
+
+    public bool hasItem(InventoryItemData refData)
+    {
+        if(currInventory.Get(refData) != null)
+        {
+            return true;
+        } else
+        {
+            return false;
         }
     }
 }

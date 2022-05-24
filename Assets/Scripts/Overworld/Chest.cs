@@ -40,13 +40,13 @@ public class Chest : InteractableObject
         {
             opened = true;
             currInventory.Add(m_item);
-            gameObject.GetComponent<SpriteRenderer>().sprite = open;
+            setSprite(open);
             Debug.Log("Opened chest. The key has 3 numbers enscribed into it: 1 0 2");
         }
     }
 
     public void closeChest()
     {
-        gameObject.GetComponent<SpriteRenderer>().sprite = closed;
+        setSprite(closed);
     }
 }

@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu(menuName = "Inventory Item Data")]
 public class InventoryItemData : ScriptableObject
@@ -9,16 +11,5 @@ public class InventoryItemData : ScriptableObject
     public string displayName;
     public Sprite icon;
     public GameObject prefab;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public bool inspect;
 }

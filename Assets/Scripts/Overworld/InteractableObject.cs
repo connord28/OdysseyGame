@@ -4,16 +4,9 @@ using UnityEngine;
 
 public abstract class InteractableObject : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void setSprite(Sprite tar)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        GetComponent<SpriteRenderer>().sprite = tar;
     }
 
     public virtual void startInteraction() { }

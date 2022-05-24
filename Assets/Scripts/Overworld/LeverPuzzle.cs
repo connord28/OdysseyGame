@@ -33,11 +33,9 @@ public class LeverPuzzle : MonoBehaviour
 
     public void puzzleStatus()
     {
-        int i = m_levers.Count - 1;
-        Debug.Log("==========");
+        int i = 0;
         foreach (Lever x in m_levers)
         {
-            Debug.Log(x.name + ": " + x.retState());
             if(x.retState() == solutions[i])
             {
                 numTrue++;
@@ -45,7 +43,7 @@ public class LeverPuzzle : MonoBehaviour
             {
                 numTrue = 0;
             }
-            i--;
+            i++;
         }
 
         if (numTrue == m_levers.Count && currInventory.Get(keyNeeded) != null)

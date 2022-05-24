@@ -21,7 +21,8 @@ public class Lever : InteractableObject
     {
         int state = Random.Range(minState, maxState);
         leverState = state;
-        GetComponent<SpriteRenderer>().sprite = leverSprites[state];
+        //GetComponent<SpriteRenderer>().sprite = leverSprites[state];
+        setSprite(leverSprites[state]);
     }
 
     // Update is called once per frame
@@ -49,7 +50,8 @@ public class Lever : InteractableObject
             leverState = minState;
         }
 
-        GetComponent<SpriteRenderer>().sprite = leverSprites[leverState];
+        //GetComponent<SpriteRenderer>().sprite = leverSprites[leverState];
+        setSprite(leverSprites[leverState]);
     }
 
     private void updateLever()
