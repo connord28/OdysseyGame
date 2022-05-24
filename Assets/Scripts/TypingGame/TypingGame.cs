@@ -153,6 +153,7 @@ public class TypingGame : MonoBehaviour
 
     public void DestroySuitor(GameObject suitor, int rand)
     {
+        suitors.Dequeue();
         GameObject.Destroy(suitor);
         inUse[rand] = false;
     }

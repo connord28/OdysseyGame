@@ -734,9 +734,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 1121745025}
   lines:
-  - Introduction to the premise of the game
-  - Further info about the journey that odysseus is on
-  - more stuff
+  - After fighting in the Trojan War, Odysseus and his crew set sail for their home,
+    Ithaka
+  - But on the way back, a huge storm comes and blows them off course
+  - They wind up on an island inhabited by Cylopes and are captured by Polyphemous
   textSpeed: 0.1
 --- !u!114 &595067087
 MonoBehaviour:
