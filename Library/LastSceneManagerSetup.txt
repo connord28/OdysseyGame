@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/TransitionScene.unity
+- path: Assets/Scenes/Final Scenes/CyclopsCave.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

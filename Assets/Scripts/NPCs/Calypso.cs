@@ -11,18 +11,12 @@ public class Calypso : InteractableObject
     [SerializeField] YarnProject project;
     public void runDialogue()
     {
-        //canvas.enabled = true;
-        //eventSystem.enabled = true;
+
         player.SetActive(false);
         dialogueController.SetActive(true);
         dialogueController.GetComponent<DialogueRunner>().startAutomatically = false;
         dialogueController.GetComponent<DialogueRunner>().SetProject(project);
-        dialogueController.GetComponent<DialogueRunner>().StartDialogue("CalypsoNext");
-
-        /*DialogueRunner runner = dialogueController.GetComponent<DialogueRunner>();
-        Debug.Log(runner.yarnProject);
-        Debug.Log(runner.startNode);*/
-        //dialogueController.GetComponent<DialogueRunner>().StartDialogue("Start");
+        dialogueController.GetComponent<DialogueRunner>().StartDialogue("Calypso");
     }
 
     [YarnCommand("CalypsoNext")]
@@ -38,12 +32,12 @@ public class Calypso : InteractableObject
             SceneManager.LoadScene(current + 2);
         }
     }
-
-    /*public override void startInteraction()
+    
+    [YarnCommand("exit")]
+    public void exit()
     {
+        player.SetActive(true);
+        dialogueController.SetActive(false);
     }
 
-    public override void endInteraction()
-    {
-    }*/
 }

@@ -17,9 +17,13 @@ public class Cyclops : InteractableObject
         //eventSystem.enabled = true;
         player.SetActive(false);
         dialogueController.SetActive(true);
+        Debug.Log("test0");
         dialogueController.GetComponent<DialogueRunner>().startAutomatically = false;
         dialogueController.GetComponent<DialogueRunner>().SetProject(project);
-        dialogueController.GetComponent<DialogueRunner>().StartDialogue("Start");
+        //dialogueController.GetComponent<DialogueRunner>().verboseLogging = true;
+        Debug.Log("test");
+        //Debug.Log(dialogueController.GetComponent<DialogueRunner>().NodeExists("test"));
+        dialogueController.GetComponent<DialogueRunner>().StartDialogue("Cyclops");
 
         /*DialogueRunner runner = dialogueController.GetComponent<DialogueRunner>();
         Debug.Log(runner.yarnProject);

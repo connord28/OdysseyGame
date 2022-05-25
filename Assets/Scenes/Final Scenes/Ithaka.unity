@@ -12383,8 +12383,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 1127230180}
   lines:
-  - Story Text 1
-  - Story Text 2
+  - After many more trials and challenges, Odyssues finally manages to make it home
+    to Ithaka
+  - There, he hears that he is thought to be dead, and that his house is full of
+    suitors seeking to marry his wife
+  - Enraged, Odysseus rushes to his house. Outside, he runs into his son Telemachus
   textSpeed: 0.1
   penelopeController: {fileID: 747193560}
 --- !u!114 &2145883771

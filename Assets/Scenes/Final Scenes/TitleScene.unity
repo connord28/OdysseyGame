@@ -718,7 +718,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 370, y: -38}
+  m_SizeDelta: {x: 600, y: -38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &595067086
 MonoBehaviour:
@@ -734,10 +734,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 1121745025}
   lines:
-  - After fighting in the Trojan War, Odysseus and his crew set sail for their home,
-    Ithaka
-  - But on the way back, a huge storm comes and blows them off course
-  - They wind up on an island inhabited by Cylopes and are captured by Polyphemous
+  - You are Odysseus, clever and valiant Greek hero and King of Ithaka. After 10
+    long years fighting in the Trojan War, you and your men have finally begun the
+    journey home...
+  - But you have angered the gods and ended up shipwrecked on the island of the man-eating
+    Cyclopes.
+  - Polyphemus the Cyclops invited you into his cave, where he trapped you and made
+    plans to eat you and your crew for dinner. How will you, wily Odysseus, save
+    your men from this gruesome fate?
   textSpeed: 0.1
 --- !u!114 &595067087
 MonoBehaviour:
@@ -890,7 +894,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -20}
+  m_AnchoredPosition: {x: 0, y: -20.000008}
   m_SizeDelta: {x: 400, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &841300492
@@ -1461,7 +1465,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 20
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
