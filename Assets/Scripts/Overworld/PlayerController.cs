@@ -1,18 +1,13 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.InputSystem;
-using Cinemachine;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 3.0f;
     [SerializeField] private PlayerControls playerControls;
-    [SerializeField] Animator animator;
-
-    // Camera settings
-
-
-
+   
     private InputAction move;
     private InputAction interact;
 
@@ -20,20 +15,9 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 moveDirection = Vector2.zero;
 
-    private bool isXMoving = false;
-    private bool isYMoving = false;
-
-    private InventorySystem currInventory;
-
-    private CinemachineVirtualCamera vCam;
-    private CameraAdjust vCamSettings;
-
     private void Awake()
     {
         playerControls = new PlayerControls();
-        currInventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<InventorySystem>();
-        vCam = GameObject.FindGameObjectWithTag("CM vCam").GetComponent<CinemachineVirtualCamera>();
-        vCamSettings = vCam.GetComponent<CameraAdjust>();
     }
 
     private void OnEnable()
@@ -41,7 +25,7 @@ public class PlayerController : MonoBehaviour
         move = playerControls.Player.Move;
         move.Enable();
 
-        interact = playerControls.Player.Interact;
+        interact = playerControls.Player.Fire;
         interact.Enable();
         interact.performed += Interact;
     }
@@ -67,6 +51,12 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //Vector2 pos = rigidbody2D.position;
+        //pos.x = pos.x + speed * horizontal * Time.deltaTime;
+        //pos.y = pos.y + speed * vertical * Time.deltaTime;
+
+        //rigidbody2D.MovePosition(pos);
+
         Move();
     }
 
@@ -77,52 +67,12 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        if(moveDirection.x != 0 && !isYMoving)
-        {
-            animator.SetBool("walking", true);
-            rigidbody2D.velocity = new Vector2(moveDirection.x * moveSpeed, 0);
-            animator.SetInteger("Direction", moveDirection.x > 0 ? 1 : 0);
-            isXMoving = true;
-            isYMoving = false;
-        } else if(moveDirection.y != 0 && !isXMoving)
-        {
-            animator.SetBool("walking", true);
-            rigidbody2D.velocity = new Vector2(0, moveDirection.y * moveSpeed);
-            animator.SetInteger("Direction", moveDirection.y > 0 ? 2 : 3);
-            isXMoving = false;
-            isYMoving = true;
-        } else
-        {
-            animator.SetBool("walking", false);
-            rigidbody2D.velocity = Vector2.zero;
-            isXMoving = false;
-            isYMoving = false;
-        }
-        
+        rigidbody2D.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
     }
 
     private void Interact(InputAction.CallbackContext context)
     {
-        //Didn't use
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("MazeStart"))
-        {
-            vCam.m_Lens.OrthographicSize = vCamSettings.getMazeOrthoSize();
-            vCam.GetCinemachineComponent<CinemachineTransposer>().m_XDamping = vCamSettings.getMazeXDamping(); ;
-            vCam.GetCinemachineComponent<CinemachineTransposer>().m_YDamping = vCamSettings.getMazeYDamping(); ;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("MazeStart"))
-        {
-            vCam.m_Lens.OrthographicSize = vCamSettings.getRegOrthoSize();
-            vCam.GetCinemachineComponent<CinemachineTransposer>().m_XDamping = vCamSettings.getRegXDamping(); ;
-            vCam.GetCinemachineComponent<CinemachineTransposer>().m_YDamping = vCamSettings.getRegYDamping(); ;
-        }
+        //Interact logic
+        Debug.Log("Tried to interact");
     }
 }
