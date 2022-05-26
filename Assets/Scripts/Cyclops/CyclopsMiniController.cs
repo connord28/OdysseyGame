@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CyclopsMiniController : MonoBehaviour
 {
@@ -31,10 +32,15 @@ public class CyclopsMiniController : MonoBehaviour
 
     //get rid of this later 
     private Color sheepColor;
+    private bool win = false;
+
+    public GameObject previousScene;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        previousScene = GameObject.Find("CaveController");
         sheepColor = sheepList[0].GetComponent<Button>().colors.disabledColor;
         flag = false;
         currLocation = 0;
@@ -43,6 +49,7 @@ public class CyclopsMiniController : MonoBehaviour
         {
             sheep.GetComponent<Button>().interactable = true;
         }
+
     }
 
     // Update is called once per frame
@@ -103,7 +110,7 @@ public class CyclopsMiniController : MonoBehaviour
         //float moveY = 7f;
         //float moveX = 7f;
         //cyclopsVector = new Vector3(0, -moveY, 0);
-        yield return new WaitForSeconds(1.5f);
+        /*yield return new WaitForSeconds(1.5f);
         //cyclopsVector = new Vector3(0, 0, 0);
         yield return new WaitForSeconds(.3f);
         currLocation++;
@@ -124,12 +131,13 @@ public class CyclopsMiniController : MonoBehaviour
         currLocation++;
         //cyclopsVector = new Vector3(0, -moveY, 0);
         yield return new WaitForSeconds(.7f);
-        cyclopsVector = new Vector3(0, 0, 0);
+        cyclopsVector = new Vector3(0, 0, 0);*/
         yield return new WaitForSeconds(.7f);
         phase = Phases.CyclopsGrab;
         //StartCoroutine(CyclopsGrab());
         int rand = Random.Range(0, sheepList.Count);
         //Debug.Log(rand);
+        //rand = 0;
         targetSheep = sheepList[rand];
         target = targetSheep.transform.localPosition;
         flag = true;
@@ -139,6 +147,11 @@ public class CyclopsMiniController : MonoBehaviour
     }
     public IEnumerator EndCyclopsTurn()
     {
+        phase = Phases.Win;
+        endText.text = "You Win";
+        win = true;
+        endScreen.SetActive(true);
+        yield break;
         yield return new WaitForSeconds(.5f);
         cyclops.GetComponent<Image>().sprite = grabSprite;
         yield return new WaitForSeconds(.3f);
@@ -176,6 +189,7 @@ public class CyclopsMiniController : MonoBehaviour
             {
                 phase = Phases.Win;
                 endText.text = "You Win";
+                win = true;
                 endScreen.SetActive(true);
                 yield break;
             }
@@ -183,7 +197,7 @@ public class CyclopsMiniController : MonoBehaviour
         else
         {
             phase = Phases.Player;
-            Debug.Log("enabled"); 
+            //Debug.Log("enabled"); 
             foreach (GameObject sheep in sheepList)
             {
                 sheep.GetComponent<Button>().interactable = true;
@@ -195,23 +209,42 @@ public class CyclopsMiniController : MonoBehaviour
 
     public void SelectSheep(GameObject sheep)
     {
-        Debug.Log("Test0");
+        //Debug.Log("Test0");
         var newColorBlock = sheepList[0].GetComponent<Button>().colors;
         newColorBlock.disabledColor = sheepColor;
-        Debug.Log("Test1");
+        //Debug.Log("Test1");
         if (currSheep != null)
             currSheep.GetComponent<Button>().colors = newColorBlock;
-        Debug.Log("Test2");
+        //Debug.Log("Test2");
         currSheep = sheep;
         Color c = new Color(178/255f, 178/255f, 178/255f);
         newColorBlock.disabledColor = c;
         currSheep.GetComponent<Button>().colors = newColorBlock;
-        Debug.Log("disabled");
+        //Debug.Log("disabled");
         //need to add changing the disabled sprite of the selected sheep
         foreach (GameObject s in sheepList)
         {
             s.GetComponent<Button>().interactable = false;
         }
         StartCoroutine(PlayerTurnEnd());
+    }
+
+    public void returnToGame()
+    {
+        int current = SceneManager.GetActiveScene().buildIndex + 1;
+        if (win)
+        {
+            GameController.BeatCyclopsGame = true;
+            SceneManager.UnloadSceneAsync(current-1);
+            SceneManager.LoadScene(current+1, LoadSceneMode.Single);
+        }
+        else
+        {
+            //previousScene.SetActive(true);
+            previousScene.GetComponent<CaveController>().restart();
+            SceneManager.UnloadSceneAsync(current);
+            //SceneManager.LoadScene(current-1, );
+            //need to change things in game controller
+        }
     }
 }
