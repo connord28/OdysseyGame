@@ -5,7 +5,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637890577723425466
+      ticks: 637891327606942775
     m_Hash: 114812451
   m_LockFileStatus:
     m_FilePath: C:/Users/Connor/Documents/GitHub/OdysseyGame/Packages/packages-lock.json
@@ -13,7 +13,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637890577723435489
+      ticks: 637891327606952783
     m_Hash: 460670370
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
@@ -719,6 +719,7 @@ m_PackageAssets:
         - 2.6.9
         - 2.6.10
         - 2.6.11
+        - 2.6.14
         - 2.7.1
         - 2.7.2
         - 2.7.3
@@ -734,6 +735,7 @@ m_PackageAssets:
         - 2.8.2
         - 2.8.3
         - 2.8.4
+        - 2.8.6
         - 2.9.0-pre.1
         - 2.9.0-pre.6
         compatible:
@@ -754,6 +756,7 @@ m_PackageAssets:
         - 2.6.9
         - 2.6.10
         - 2.6.11
+        - 2.6.14
         - 2.7.1
         - 2.7.2
         - 2.7.3
@@ -769,9 +772,10 @@ m_PackageAssets:
         - 2.8.2
         - 2.8.3
         - 2.8.4
+        - 2.8.6
         - 2.9.0-pre.1
         - 2.9.0-pre.6
-        verified: 2.6.11
+        verified: 2.6.14
       dependencies: []
       resolvedDependencies: []
       keywords:
