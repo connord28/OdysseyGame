@@ -11701,6 +11701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c025f0c89c22074ca5f707eac3b730d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventoryUI: {fileID: 0}
 --- !u!4 &704110678
 Transform:
   m_ObjectHideFlags: 0
@@ -15571,11 +15572,11 @@ RectTransform:
   m_Father: {fileID: 1565649610}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 250, y: 32}
-  m_SizeDelta: {x: 172.51, y: 280.56}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 32}
+  m_SizeDelta: {x: 172.51001, y: 280.56}
+  m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1832186008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15608,7 +15609,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a29930c18e703924fb204ffd580db008, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 62368461f1f38d64c89205ad64dc103b, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -15663,6 +15664,7 @@ MonoBehaviour:
   mazeOrthoSize: 2
   mazeXDamping: 1
   mazeYDamping: 1
+  zoomSpeed: 0
 --- !u!114 &1841502842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16273,6 +16275,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   animator: {fileID: 2064326446}
+  currInventory: {fileID: 704110677}
+  vCam: {fileID: 1841502843}
 --- !u!50 &2064326448
 Rigidbody2D:
   serializedVersion: 4

@@ -64,6 +64,73 @@ title: exitCalypso
 <<exit Calypso>>
 ===
 
+title: Telemachus
+---
+<<highlight Odysseus NPC>>
+Odysseus: Telemachus! Telemachus! It's me, your father!
+<<highlight NPC Odysseus>>
+Telemachus: Odysseus?! No, my father is dead. You must be an imposter.
+<<highlight Odysseus NPC>>
+-> Son, it's really me. I have missed you all these years. 
+   <<highlight NPC Odysseus>>
+	Telemachus: Bah! I've heard the same from many liars over the years. Begone, greedy thief!
+   <<endScene DialogueSystem false>>
+-> You're smart to be suspicious, but I can prove it to you.
+   <<highlight NPC Odysseus>>
+	Telemachus: How? If you waste my time, I'll have you exiled from Ithaka!
+   <<highlight Odysseus NPC>>
+   <<jump Telemachus2>> 	
+===
+
+title: Telemachus2
+---
+-> You have become an arrogant young man! I'm still the king here! 
+   <<highlight NPC Odysseus>>
+	Telemachus: Guards! Throw this man out immediately!
+	<<endScene DialogueSystem false>>
+-> Here is the scar I got while hunting a boar in my youth...
+   <<highlight NPC Odysseus>>
+	Telemachus: So it is! I believe that you are Odysseus. However, I cannot accept you as my father. 
+   <<highlight Odysseus NPC>>
+	Odysseus: Why not, son? I have missed you and your mother during my years away.
+   <<highlight NPC Odysseus>>
+	Telemachus: You abandoned us by staying away long after the Trojan War ended! Our once great house has been trashed by suitors trying to marry my mother. 
+   <<highlight Odysseus NPC>>
+	-> What?! They dare to disrespect our house? We must get rid of them somehow...
+	-> I am still Penelope's husband. These upstarts will die for their crimes.
+	
+   <<highlight NPC Odysseus>>
+   Telemachus: I agree. Once you kill them, I'll call you father again.
+   <<endScene DialogueSystem true>>
+===
+
+title: Penelope
+---
+<<highlight NPC Odysseus>>
+Penelope: What..! Odysseus?! My husband, is it really you, or is this some illusion or dream? I've dreamt of seeing you again a hundred times...
+<<highlight Odysseus NPC>>
+
+-> My beautiful queen, it's really me. I have longed for you too.
+-> It's no illusion. I've proved to our son that I am who I say I am.
+
+<<highlight NPC Odysseus>>
+Penelope: Telemachus told me you had returned, but I didn't dare believe it until I saw you. What was all that commotion in the hall?
+<<highlight Odysseus NPC>>
+
+-> I killed those jackals who were pursuing you so rudely!
+-> I got rid of those wretched suitors. Now we may reclaim our kingdom and live together happily. 
+
+<<highlight NPC Odysseus>>
+Penelope: Oh, Odysseus! How I wished you would come and free me from those horrible men! And now you have...I love you, husband.
+<<highlight Odysseus NPC>>
+Odysseus: Penelope, my love. Come closer, let us embrace once more.
+<<switch PenelopeController>> 
+<<highlight NPC Odysseus>>
+Telemachus: I'm glad you're home, Father.
+<<endGame PenelopeController>>
+===
+
+
 title: Start
 ---
 <<highlight NPC Odysseus>>
@@ -98,8 +165,11 @@ Penelope: Kill the suitors
 <<PenelopeNext PenelopeController game>>
 ===
 
-title: Telemachus
+title: TelemachusTest
 ---
 Penelope: Hello Dad
-<<TelemachusEnd PenelopeController>>
+-> Hello
+   <<endScene DialogueSystem true>>
+-> Restart
+   <<endScene DialogueSystem false>>
 ===

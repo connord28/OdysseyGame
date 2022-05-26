@@ -14,8 +14,8 @@ public class PenelopeController : MonoBehaviour
     [SerializeField] YarnProject project;
     [SerializeField] Image npc;
     [SerializeField] List<Sprite> npcSprites;
-    [SerializeField] Image background;
-    [SerializeField] List<Sprite> backgroundSprites;
+    //[SerializeField] Image background;
+    //[SerializeField] List<Sprite> backgroundSprites;
 
 
 
@@ -35,14 +35,20 @@ public class PenelopeController : MonoBehaviour
         }
     }
 
-    [YarnCommand("TelemachusEnd")]
+    [YarnCommand("switch")]
+    public void switchSprite()
+    {
+        npc.sprite = npcSprites[1];
+    }
+
+    /*[YarnCommand("TelemachusEnd")]
     public void TelemachusEnd()
     {
         player.SetActive(true);
         dialogueRunner.SetActive(false);
         npc.sprite = npcSprites[1];
         background.sprite = backgroundSprites[1];
-    }
+    }*/
 
     public void restart()
     {
@@ -55,12 +61,18 @@ public class PenelopeController : MonoBehaviour
     public void DiaogueOne()
     {
         IntroText.SetActive(false);
-        dialogueRunner.SetActive(true);
-        npc.sprite = npcSprites[0];
-        background.sprite = backgroundSprites[0];
-        dialogueRunner.GetComponent<DialogueRunner>().startAutomatically = false;
-        dialogueRunner.GetComponent<DialogueRunner>().SetProject(project); 
-        dialogueRunner.GetComponent<DialogueRunner>().StartDialogue("Telemachus");
+        player.SetActive(true);
+        //dialogueRunner.SetActive(true);
+        //npc.sprite = npcSprites[0];
+        //background.sprite = backgroundSprites[0];
+        //dialogueRunner.GetComponent<DialogueRunner>().startAutomatically = false;
+        //dialogueRunner.GetComponent<DialogueRunner>().SetProject(project); 
+        //dialogueRunner.GetComponent<DialogueRunner>().StartDialogue("Telemachus");
     }
 
+    [YarnCommand("endGame")]
+    public void endGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 }
