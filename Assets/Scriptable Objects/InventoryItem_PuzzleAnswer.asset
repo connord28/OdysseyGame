@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: InventoryItem_PuzzleAnswer
   displayName: PuzzleAnswer
-  icon: {fileID: 0}
-  prefab: {fileID: 1700791126892630982, guid: ab8cb54996f9b754397a98eef9d38e74, type: 3}
+  icon: {fileID: 21300000, guid: 33be6a55f982aad49b6f936a7cc483bf, type: 3}
+  prefab: {fileID: 1914411390319226767, guid: 373dbabf918dac1428daae1fb8940b15, type: 3}
+  inspect: 1
