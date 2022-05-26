@@ -21,7 +21,6 @@ public class Lever : InteractableObject
     {
         int state = Random.Range(minState, maxState);
         leverState = state;
-        //GetComponent<SpriteRenderer>().sprite = leverSprites[state];
         setSprite(leverSprites[state]);
     }
 
@@ -50,7 +49,6 @@ public class Lever : InteractableObject
             leverState = minState;
         }
 
-        //GetComponent<SpriteRenderer>().sprite = leverSprites[leverState];
         setSprite(leverSprites[leverState]);
     }
 

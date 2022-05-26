@@ -16,27 +16,6 @@ public class Inspectable : MonoBehaviour
         _button.enabled = false;
     }
 
-    //void Update()
-    //{
-    //    if (Keyboard.current.qKey.wasPressedThisFrame) // interact key
-    //    {
-    //        if (_img.enabled)
-    //        {
-    //            Debug.Log("Trying to disable.");
-    //            _img.enabled = false;
-    //            _button.GetComponent<Image>().enabled = false;
-    //            _button.enabled = false;
-    //        }
-    //        else
-    //        {
-    //            Debug.Log("Trying to enable.");
-    //            _img.enabled = true;
-    //            _button.GetComponent<Image>().enabled = true;
-    //            _button.enabled = true;
-    //        }
-    //    }
-    //}
-
     public void itemClickRoutine()
     {
         _img.enabled = true;

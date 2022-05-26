@@ -8,7 +8,11 @@ public class LeverPuzzle : MonoBehaviour
 
     [SerializeField] private int[] solutions;
 
+    [SerializeField] private GameObject door;
+    [SerializeField] private GameObject notification;
+
     private int numTrue;
+    private bool doorOpened;
 
     [SerializeField] private InventoryItemData keyNeeded;
     private InventorySystem currInventory;
@@ -46,8 +50,9 @@ public class LeverPuzzle : MonoBehaviour
             i++;
         }
 
-        if (numTrue == m_levers.Count && currInventory.Get(keyNeeded) != null)
+        if (numTrue == m_levers.Count && currInventory.Get(keyNeeded) != null && !doorOpened)
         {
+            doorOpened = true;
             endPuzzle();
         } else
         {
@@ -60,6 +65,7 @@ public class LeverPuzzle : MonoBehaviour
     private void endPuzzle()
     {
         Debug.Log("Puzzle solved! Opening exit!");
-        Destroy(gameObject);
+        door.GetComponent<LockedDoor>().puzzleCompleted();
+        notification.GetComponent<PuzzleFinishedText>().displayNoti();
     }
 }
