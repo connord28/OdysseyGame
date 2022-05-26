@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class CaveController : MonoBehaviour
 {
     [SerializeField] GameObject player;
+    [SerializeField] GameObject npc;
     [SerializeField] GameObject dialogueRunner;
     [SerializeField] GameObject currentScene;
 
@@ -32,6 +33,7 @@ public class CaveController : MonoBehaviour
     {
         currentScene.SetActive(true);
         player.SetActive(true);
+        npc.SetActive(true);
         dialogueRunner.SetActive(false);
         dialogueRunner.GetComponent<DialogueRunner>().startNode = "Next";
     }

@@ -1,16 +1,82 @@
+title: Cyclops
+---
+<<highlight NPC Odysseus>>
+Cyclops: Stranger, now that you have entered my cave, you and your men shall become my meal!
+Cyclops: Mmmm, I will enjoy gobbling up your flesh. Have you brought this wine for me?
+<<highlight Odysseus NPC>>
+
+-> Yes, Cyclops, this wine is for our gracious host. 
+      <<highlight NPC Odysseus>>
+      Cyclops: You are a good guest, stranger. As thanks, I will eat you last!
+      Cyclops: For now, let me have a taste of your men and drink this wine.
+      <<remove Odysseus NPC>>
+      Odysseus: Yes, Cyclops, get drunk on wine. While you slumber, my men and I will plot our escape.
+      <<CyclopsNext CaveController game>>
+
+-> No, it's not for you! Let us go!
+      <<highlight NPC Odysseus>>
+      Cyclops: What?! So you haven't brought anything for your host? You are insolent!
+      Cyclops: I will eat you all right away. Come here!
+      <<highlight Odysseus NPC>>
+      -> No, don't eat us!
+      -> No, wait! Don't you have to tend your crops?
+      <<highlight NPC Odysseus>>
+      Cyclops: I guess I'll have to eat you once I return. 
+      <<remove Odysseus NPC>>
+      Odysseus: Aha! While you are gone, my men and I will plot our escape.
+      <<CyclopsNext CaveController game>>
+===
+
+title: Calypso
+---
+<<highlight NPC Odysseus>>
+Calypso: Greetings, Odysseus. You look upset, what's the matter? 
+<<highlight Odysseus NPC>>
+
+-> There's no problem, beautiful goddess. I am just feeling lonely. 
+   <<highlight NPC Odysseus>>
+	Calypso: I am so sorry to hear that, my handsome hero. We should spend some time together today.
+   <<highlight Odysseus NPC>>
+   Odysseus: That would lift my spirits. Let us walk and enjoy the ocean breeze.
+   <<jump exitCalypso>>
+
+-> I miss my home, Calypso. I have spent 7 long years here. 
+   <<highlight NPC Odysseus>>
+	Calypso: Yes, and you have enjoyed the simple pleasures of my island home and the company of a goddess, have you not?
+   <<highlight Odysseus NPC>>
+   <<jump Calypso2>>
+===
+
+title: Calypso2
+---
+-> I thank you for taking me in, but I want to return to my wife and son.
+      <<highlight NPC Odysseus>>
+		Calypso: If you truly wish to leave me and return to Ithaka, here's what you must do...
+      <<CalypsoNext Calypso game>>
+-> I've felt trapped and longed to return home every day. Please let me go now.
+      <<highlight NPC Odysseus>> 
+		Calypso: Trapped?! You hurt my feelings...now I will never let you go!
+      <<jump exitCalypso>>
+===
+
+title: exitCalypso
+---
+<<exit Calypso>>
+===
+
 title: Start
 ---
-<<highlight Penelope Odysseus>>
+<<highlight NPC Odysseus>>
 Penelope: You're alive!
 Penelope: It's so nice to see you!
-<<highlight Odysseus Penelope>>
+<<highlight Odysseus NPC>>
 
 -> It's great to see you too.
 -> I've finally returned.
       
-<<highlight Penelope Odysseus>>
+<<highlight NPC Odysseus>>
 Penelope: It was so awful without you here.
-<<jump Next>>
+<<PenelopeNext PenelopeController game>>
 ===
 
 
@@ -26,8 +92,14 @@ Penelope: Kill the island
 <<CalypsoNext Calypso game>>
 ===
 
-title: Penelope
+title: Penelope2
 ---
 Penelope: Kill the suitors
 <<PenelopeNext PenelopeController game>>
+===
+
+title: Telemachus
+---
+Penelope: Hello Dad
+<<TelemachusEnd PenelopeController>>
 ===
