@@ -1,5 +1,9 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/Final Scenes/Ithaka2.unity
+=======
+- path: Assets/Scenes/Darren's Tests.unity
+>>>>>>> main
   isLoaded: 1
   isActive: 1
   isSubScene: 0

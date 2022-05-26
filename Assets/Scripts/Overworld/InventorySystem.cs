@@ -1,12 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class InventorySystem : MonoBehaviour
 {
+    [SerializeField] private Canvas inventoryUI;
+
     private Dictionary<InventoryItemData, InventoryItem> m_itemDictionary;
     [SerializeField] public List<InventoryItem> inventory { get; private set; }
-
+    
     private void Awake()
     {
         inventory = new List<InventoryItem>();
@@ -27,12 +30,14 @@ public class InventorySystem : MonoBehaviour
         if(m_itemDictionary.TryGetValue(referenceData, out InventoryItem value))
         {
             value.AddToStack();
+            //Update UI?
         }
         else
         {
             InventoryItem newItem = new InventoryItem(referenceData);
             inventory.Add(newItem);
             m_itemDictionary.Add(referenceData, newItem);
+            inventoryUI.GetComponent<HUD>().inventoryAddedItem(newItem);
             Debug.Log("Added " + referenceData.displayName + " to inventory.");
         }
     }
@@ -48,17 +53,5 @@ public class InventorySystem : MonoBehaviour
                 m_itemDictionary.Remove(referenceData);
             }
         }
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

@@ -8,7 +8,11 @@ public class LeverPuzzle : MonoBehaviour
 
     [SerializeField] private int[] solutions;
 
+    [SerializeField] private GameObject door;
+    [SerializeField] private GameObject notification;
+
     private int numTrue;
+    private bool doorOpened;
 
     [SerializeField] private InventoryItemData keyNeeded;
     private InventorySystem currInventory;
@@ -33,11 +37,9 @@ public class LeverPuzzle : MonoBehaviour
 
     public void puzzleStatus()
     {
-        int i = m_levers.Count - 1;
-        Debug.Log("==========");
+        int i = 0;
         foreach (Lever x in m_levers)
         {
-            Debug.Log(x.name + ": " + x.retState());
             if(x.retState() == solutions[i])
             {
                 numTrue++;
@@ -45,12 +47,12 @@ public class LeverPuzzle : MonoBehaviour
             {
                 numTrue = 0;
             }
-            i--;
+            i++;
         }
-        Debug.Log("==========");
 
-        if (numTrue == m_levers.Count && currInventory.Get(keyNeeded) != null)
+        if (numTrue == m_levers.Count && currInventory.Get(keyNeeded) != null && !doorOpened)
         {
+            doorOpened = true;
             endPuzzle();
         } else
         {
@@ -62,11 +64,8 @@ public class LeverPuzzle : MonoBehaviour
 
     private void endPuzzle()
     {
-        foreach (Lever x in m_levers)
-        {
-            Destroy(x);
-        }
-        Debug.Log("Puzzle solved!");
-        Destroy(gameObject);
+        Debug.Log("Puzzle solved! Opening exit!");
+        door.GetComponent<LockedDoor>().puzzleCompleted();
+        notification.GetComponent<PuzzleFinishedText>().displayNoti();
     }
 }

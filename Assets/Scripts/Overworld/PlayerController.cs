@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using Cinemachine;
+using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
@@ -23,16 +24,16 @@ public class PlayerController : MonoBehaviour
     private bool isXMoving = false;
     private bool isYMoving = false;
 
-    private InventorySystem currInventory;
+    [SerializeField] private InventorySystem currInventory;
 
-    private CinemachineVirtualCamera vCam;
+    [SerializeField] private CinemachineVirtualCamera vCam;
     private CameraAdjust vCamSettings;
 
     private void Awake()
     {
         playerControls = new PlayerControls();
-        currInventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<InventorySystem>();
-        vCam = GameObject.FindGameObjectWithTag("CM vCam").GetComponent<CinemachineVirtualCamera>();
+        //currInventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<InventorySystem>();
+        //vCam = GameObject.FindGameObjectWithTag("CM vCam").GetComponent<CinemachineVirtualCamera>();
         vCamSettings = vCam.GetComponent<CameraAdjust>();
     }
 
@@ -110,7 +111,8 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("MazeStart"))
         {
-            vCam.m_Lens.OrthographicSize = vCamSettings.getMazeOrthoSize();
+            //vCam.m_Lens.OrthographicSize = vCamSettings.getMazeOrthoSize();
+            StartCoroutine(zoomIn());
             vCam.GetCinemachineComponent<CinemachineTransposer>().m_XDamping = vCamSettings.getMazeXDamping(); ;
             vCam.GetCinemachineComponent<CinemachineTransposer>().m_YDamping = vCamSettings.getMazeYDamping(); ;
         }
@@ -120,9 +122,47 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("MazeStart"))
         {
-            vCam.m_Lens.OrthographicSize = vCamSettings.getRegOrthoSize();
+            //vCam.m_Lens.OrthographicSize = vCamSettings.getRegOrthoSize();
+            StartCoroutine(zoomOut());
             vCam.GetCinemachineComponent<CinemachineTransposer>().m_XDamping = vCamSettings.getRegXDamping(); ;
             vCam.GetCinemachineComponent<CinemachineTransposer>().m_YDamping = vCamSettings.getRegYDamping(); ;
         }
+    }
+
+    public bool hasItem(InventoryItemData refData)
+    {
+        if(currInventory.Get(refData) != null)
+        {
+            return true;
+        } else
+        {
+            return false;
+        }
+    }
+
+    IEnumerator zoomIn()
+    {
+        while (vCam.m_Lens.OrthographicSize > vCamSettings.getMazeOrthoSize())
+        {
+            float orthoSize = vCam.m_Lens.OrthographicSize - (vCamSettings.getZoomSpeed() * Time.deltaTime);
+            vCam.m_Lens.OrthographicSize = orthoSize;
+
+            yield return null;
+        }
+
+        vCam.m_Lens.OrthographicSize = vCamSettings.getMazeOrthoSize();
+    }
+
+    IEnumerator zoomOut()
+    {
+        while (vCam.m_Lens.OrthographicSize < vCamSettings.getRegOrthoSize())
+        {
+            float orthoSize = vCam.m_Lens.OrthographicSize + (vCamSettings.getZoomSpeed() * Time.deltaTime);
+            vCam.m_Lens.OrthographicSize = orthoSize;
+
+            yield return null;
+        }
+
+        vCam.m_Lens.OrthographicSize = vCamSettings.getRegOrthoSize();
     }
 }
