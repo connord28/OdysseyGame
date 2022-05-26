@@ -25,7 +25,7 @@ public class TypingGame : MonoBehaviour
     private string[] names = {"Zeus", "Hades", "Ares", "Hermes", "Hera", "Poseidon", "Apollo", "Demeter" }; //change these to be names of suitors
     public bool win = false;
 
-    private GameObject previousScene;
+    //private GameObject previousScene;
 
 
     private void shuffle(string[] arr)
@@ -43,7 +43,7 @@ public class TypingGame : MonoBehaviour
 
     void Start()
     {
-        previousScene = GameObject.Find("PenelopeController");
+        //previousScene = GameObject.Find("PenelopeController");
         suitors = new Queue<GameObject>();
         shuffle(names);
         nameStack = new Stack<string>();
@@ -207,20 +207,19 @@ public class TypingGame : MonoBehaviour
 
     public void returnToGame()
     {
-        int current = SceneManager.GetActiveScene().buildIndex + 1;
+        int current = SceneManager.GetActiveScene().buildIndex; //+ 1;
         if (win)
         {
             GameController.BeatIthakaGame = true;
-            SceneManager.UnloadSceneAsync(current - 1);
-            SceneManager.LoadScene(current + 1, LoadSceneMode.Single);
+            //SceneManager.UnloadSceneAsync(current - 1);
+            //SceneManager.LoadScene(current + 1, LoadSceneMode.Single);
+            SceneManager.LoadScene(current+1);
         }
         else
         {
-            //previousScene.SetActive(true);
-            previousScene.GetComponent<PenelopeController>().restart();
-            SceneManager.UnloadSceneAsync(current);
-            //SceneManager.LoadScene(current-1, );
-            //need to change things in game controller
+            //previousScene.GetComponent<PenelopeController>().restart();
+            //SceneManager.UnloadSceneAsync(current);
+            SceneManager.LoadScene(current);
         }
     }
 }

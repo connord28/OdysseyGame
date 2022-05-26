@@ -18,11 +18,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Final Scenes/CalypsoIsland.unity
     guid: 3a3629b41eba76d4593ab9b772af9c7b
   - enabled: 1
-    path: Assets/Scenes/Final Scenes/Ithaka.unity
-    guid: af16316bd498dd243a62198c9ccf6b75
+    path: Assets/Scenes/Final Scenes/Ithaka1.unity
+    guid: 8403f42efb44afd47a2d2123946a8413
   - enabled: 1
     path: Assets/Scenes/Final Scenes/TypingGame.unity
     guid: 13b1d75835e647e4591480a9bb1486ea
+  - enabled: 1
+    path: Assets/Scenes/Final Scenes/Ithaka2.unity
+    guid: af16316bd498dd243a62198c9ccf6b75
   - enabled: 1
     path: Assets/Scenes/Final Scenes/End.unity
     guid: e4c4709e9b1cbab40852b3451148f066
