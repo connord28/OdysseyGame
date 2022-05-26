@@ -16,17 +16,12 @@ public class VNSprites : MonoBehaviour
     {
         this.GetComponent<Image>().color = Color.white;
         GameObject.Find(other).GetComponent<Image>().color = shadeColor;
-        /*if (turn == 2)
-        {
-            odysseus.GetComponent<Image>().color = Color.white;
-            Penelope.GetComponent<Image>().color = highlightColor;
-        }
-        else if (turn == 0 || turn == 1 || turn == 3 || turn == 4)
-        {
-            odysseus.GetComponent<Image>().color = highlightColor;
-            Penelope.GetComponent<Image>().color = Color.white;
-        }
-        turn++;
-        Debug.Log("Worked");*/
+    }
+
+    [YarnCommand("remove")]
+    public void remove(string other) //find string
+    {
+        this.GetComponent<Image>().color = Color.white;
+        GameObject.Find(other).SetActive(false);
     }
 }
