@@ -79,6 +79,7 @@ namespace Yarn.Unity
                 optionView.gameObject.SetActive(true);
 
                 optionView.Option = option;
+                optionView.OnOptionSelected = OptionViewWasSelected;
 
                 // The first available option is selected by default
                 if (optionViewsCreated == 0)
