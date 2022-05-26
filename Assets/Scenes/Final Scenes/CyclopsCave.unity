@@ -11701,6 +11701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c025f0c89c22074ca5f707eac3b730d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventoryUI: {fileID: 0}
 --- !u!4 &704110678
 Transform:
   m_ObjectHideFlags: 0
@@ -15663,6 +15664,7 @@ MonoBehaviour:
   mazeOrthoSize: 2
   mazeXDamping: 1
   mazeYDamping: 1
+  zoomSpeed: 0
 --- !u!114 &1841502842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16273,6 +16275,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   animator: {fileID: 2064326446}
+  currInventory: {fileID: 704110677}
+  vCam: {fileID: 1841502843}
 --- !u!50 &2064326448
 Rigidbody2D:
   serializedVersion: 4
