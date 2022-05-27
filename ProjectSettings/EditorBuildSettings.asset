@@ -5,9 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/Final Scenes/TitleScene.unity
+  - enabled: 0
+    path: Assets/Scenes/TitleScene.unity
     guid: 210315a0e615d6a488bce366d2051a19
+  - enabled: 1
+    path: Assets/Scenes/Final Scenes/TitleMenuScene.unity
+    guid: 3afbdd921813fd44e8f8f2ca14def43a
   - enabled: 1
     path: Assets/Scenes/Final Scenes/CyclopsCave.unity
     guid: 6286d79d927f30d46b2707e6a707909d
@@ -17,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Final Scenes/CalypsoIsland.unity
     guid: 3a3629b41eba76d4593ab9b772af9c7b
+  - enabled: 1
+    path: Assets/Scenes/Final Scenes/Darren's Scene.unity
+    guid: 20fb9e90e9164ff4eb027f7c9a7b6146
   - enabled: 1
     path: Assets/Scenes/Final Scenes/Ithaka1.unity
     guid: 8403f42efb44afd47a2d2123946a8413
