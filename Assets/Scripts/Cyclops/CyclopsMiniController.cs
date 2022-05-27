@@ -110,7 +110,7 @@ public class CyclopsMiniController : MonoBehaviour
         //float moveY = 7f;
         //float moveX = 7f;
         //cyclopsVector = new Vector3(0, -moveY, 0);
-        /*yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.5f);
         //cyclopsVector = new Vector3(0, 0, 0);
         yield return new WaitForSeconds(.3f);
         currLocation++;
@@ -131,7 +131,7 @@ public class CyclopsMiniController : MonoBehaviour
         currLocation++;
         //cyclopsVector = new Vector3(0, -moveY, 0);
         yield return new WaitForSeconds(.7f);
-        cyclopsVector = new Vector3(0, 0, 0);*/
+        cyclopsVector = new Vector3(0, 0, 0);
         yield return new WaitForSeconds(.7f);
         phase = Phases.CyclopsGrab;
         //StartCoroutine(CyclopsGrab());
@@ -147,11 +147,6 @@ public class CyclopsMiniController : MonoBehaviour
     }
     public IEnumerator EndCyclopsTurn()
     {
-        phase = Phases.Win;
-        endText.text = "You Win";
-        win = true;
-        endScreen.SetActive(true);
-        yield break;
         yield return new WaitForSeconds(.5f);
         cyclops.GetComponent<Image>().sprite = grabSprite;
         yield return new WaitForSeconds(.3f);
