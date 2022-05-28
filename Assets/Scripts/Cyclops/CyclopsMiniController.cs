@@ -136,8 +136,6 @@ public class CyclopsMiniController : MonoBehaviour
         phase = Phases.CyclopsGrab;
         //StartCoroutine(CyclopsGrab());
         int rand = Random.Range(0, sheepList.Count);
-        //Debug.Log(rand);
-        rand = 0;
         targetSheep = sheepList[rand];
         target = targetSheep.transform.localPosition;
         flag = true;
