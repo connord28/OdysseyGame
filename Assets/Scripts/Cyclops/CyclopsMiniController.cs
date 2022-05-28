@@ -137,7 +137,7 @@ public class CyclopsMiniController : MonoBehaviour
         //StartCoroutine(CyclopsGrab());
         int rand = Random.Range(0, sheepList.Count);
         //Debug.Log(rand);
-        //rand = 0;
+        rand = 0;
         targetSheep = sheepList[rand];
         target = targetSheep.transform.localPosition;
         flag = true;

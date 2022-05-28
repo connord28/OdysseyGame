@@ -20,6 +20,7 @@ public class CaveController : MonoBehaviour
         if (scene == "game")
         {
             dialogueRunner.SetActive(false);
+            npc.SetActive(true);
             currentScene.SetActive(false);
             SceneManager.LoadScene(current + 1, LoadSceneMode.Additive);
         }
@@ -35,6 +36,6 @@ public class CaveController : MonoBehaviour
         player.SetActive(true);
         npc.SetActive(true);
         dialogueRunner.SetActive(false);
-        dialogueRunner.GetComponent<DialogueRunner>().startNode = "Next";
+        dialogueRunner.GetComponent<DialogueRunner>().startNode = "Cyclops";
     }
 }

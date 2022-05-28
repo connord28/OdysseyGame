@@ -9,6 +9,7 @@ public class Cyclops : InteractableObject
 {
     [SerializeField] GameObject dialogueController;
     [SerializeField] GameObject player;
+    [SerializeField] GameObject npc;
     [SerializeField] YarnProject project;
 
     public void runDialogue()
@@ -17,6 +18,7 @@ public class Cyclops : InteractableObject
         //eventSystem.enabled = true;
         player.SetActive(false);
         dialogueController.SetActive(true);
+        npc.SetActive(true);
         Debug.Log("test0");
         dialogueController.GetComponent<DialogueRunner>().startAutomatically = false;
         dialogueController.GetComponent<DialogueRunner>().SetProject(project);
