@@ -20,6 +20,7 @@ public class NextLevel : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //go to next level
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if(collision.tag == "Player")
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
